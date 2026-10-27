@@ -1,0 +1,54 @@
+{
+ "results": [
+  {
+   "text": "Olá, sou a [PERSON_ccd7e4], CPF [CPF_660492], e quero cancelar a assinatura do plano anual.",
+   "findings": [
+    {
+     "label": "PERSON",
+     "start": 11,
+     "end": 27,
+     "action": "replace",
+     "placeholder": "[PERSON_ccd7e4]"
+    },
+    {
+     "label": "CPF",
+     "start": 33,
+     "end": 47,
+     "action": "replace",
+     "placeholder": "[CPF_660492]"
+    }
+   ]
+  },
+  {
+   "text": "Cliente [PERSON_9a591b] ligou do [PHONE_c76148] pedindo a segunda via do boleto.",
+   "findings": [
+    {
+     "label": "PERSON",
+     "start": 8,
+     "end": 32,
+     "action": "replace",
+     "placeholder": "[PERSON_9a591b]"
+    },
+    {
+     "label": "PHONE",
+     "start": 42,
+     "end": 53,
+     "action": "replace",
+     "placeholder": "[PHONE_c76148]"
+    }
+   ]
+  },
+  {
+   "text": "Enviar o contrato para o e-mail [EMAIL_c0078b] até sexta-feira.",
+   "findings": [
+    {
+     "label": "EMAIL",
+     "start": 32,
+     "end": 56,
+     "action": "replace",
+     "placeholder": "[EMAIL_c0078b]"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+id,canal,mensagem
+msg-001,chat,"Olá, sou a [PERSON_ccd7e4], CPF [CPF_660492], e quero cancelar a assinatura do plano anual."
+msg-002,chat,Cliente [PERSON_9a591b] ligou do [PHONE_c76148] pedindo a segunda via do boleto.
+msg-003,chat,Enviar o contrato para o e-mail [EMAIL_c0078b] até sexta-feira.
+msg-004,chat,"Fornecedor: Gráfica Horizonte Ltda., CNPJ [CNPJ_050518]."
+msg-005,chat,meu cpf é [CPF_515ec5] e o pedido 48213377 ainda não chegou
+msg-006,chat,"Paciente nascida em [DATE_OF_BIRTH_37f0bd], RG [RG_97a16d] SSP/SP, atendida na unidade Centro."
+msg-007,chat,"Reembolso via PIX para a chave [PIX_KEY_691a71], titular [PERSON_c13644]."
+msg-008,chat,"Depósito na agência [BANK_ACCOUNT_6fb488], conta corrente [BANK_ACCOUNT_4a3602], em nome de [PERSON_9a2f4b]."
+msg-009,chat,"Veículo placa [VEHICLE_PLATE_c11b55], RENAVAM [RENAVAM_20a0d7], multado em 02/09/2026."
+msg-010,chat,"Endereço de entrega: [ADDRESS_aac9ef], CEP [CEP_ceb975]."
+msg-011,chat,Cartão final 8980 recusado; o cliente informou o cartão [CARD_93081e].
+msg-012,chat,O protocolo 2026114455 foi aberto e o prazo de resposta é de 5 dias úteis.
