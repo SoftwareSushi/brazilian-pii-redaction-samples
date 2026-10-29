@@ -14,7 +14,7 @@ It creates a real-time endpoint on `ml.m5.large`, tries the options, runs three 
 
 ## Samples
 
-Every value in the samples is fake. The outputs were produced with the key `exemplo` (`BRPII_KEY=exemplo`); with your own key the placeholders differ.
+Every value in the samples is fake. The outputs were produced with the key `exemplo`; with your own key the placeholders differ.
 
 | Use | Input | Output |
 |---|---|---|
@@ -25,13 +25,13 @@ Every value in the samples is fake. The outputs were produced with the key `exem
 
 ## Input and output in brief
 
-**Real-time.** Send `{"text": "..."}` or `{"texts": [...]}` as `application/json`, with optional `"options"`. The response is `{"results": [{"text": cleaned text, "findings": [...]}]}`, each finding with its type, its position in the original text, the action taken and the placeholder. `text/plain` and `text/csv` are accepted too.
+**Real-time.** Send `{"text": "..."}` or `{"texts": [...]}` as `application/json`, with your `"key"` and optional `"options"`. The response is `{"results": [{"text": cleaned text, "findings": [...]}]}`, each finding with its type, its position in the original text, the action taken and the placeholder. `text/plain` and `text/csv` are accepted too.
 
-**Batch transform.** JSON Lines (`{"id": ..., "text": ...}` per line), CSV or plain-text files in S3, with `SplitType` `Line` and `Accept` the same as `ContentType`. Each output file has the same shape as its input.
+**Batch transform.** JSON Lines (`{"id": ..., "text": ..., "key": ...}` per line, optional `"options"`), CSV or plain-text files in S3, with `SplitType` `Line` and `Accept` set to the plain content type. Each output file has the same shape as its input.
 
-**Options.** `action` (`replace`, the default; `mask`, `remove`, `report`), `per_label` (an action per type), `labels` (only these types), `include_values` (also return the original values; off by default), and for CSV `csv_columns` (column numbers from 0) and `csv_findings`. For batch jobs, put options in the `BRPII_OPTIONS` environment variable as JSON.
+**Options.** `action` (`replace`, the default; `mask`, `remove`, `report`), `per_label` (an action per type), `labels` (only these types), `include_values` (also return the original values; off by default), and for CSV `csv_columns` (column numbers from 0) and `csv_findings`. For CSV and plain text, and for a whole batch job, give them as Content-Type parameters: `text/csv; key=<your secret>; csv_columns=0,2; action=mask` (lists with commas, an action per type as `per_label=PERSON:report,CPF:mask`).
 
-**Placeholder key.** Set `BRPII_KEY` on the model, or send `key=...` in the `X-Amzn-SageMaker-Custom-Attributes` header. With the same key, the same value always gets the same placeholder, so cleaned records can still be joined. Keep the key secret: this is pseudonymisation, not anonymisation.
+**Placeholder key.** A Marketplace model takes no environment variables, so the key travels with the data: `"key"` in the JSON body or a JSON Lines record, `key=...` as a Content-Type parameter, or `key=...` in the `X-Amzn-SageMaker-Custom-Attributes` header. The more specific place wins. With the same key, the same value always gets the same placeholder, so cleaned records can still be joined. Keep the key secret: this is pseudonymisation, not anonymisation.
 
 **Limits.** A real-time request has 60 seconds; keep each to about 50 short texts or 20,000 characters. Portuguese text only.
 
